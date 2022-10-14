@@ -1,6 +1,7 @@
 import React from 'react'
-import { Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Pressable } from 'react-native';
 import { Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -8,12 +9,13 @@ const height = Dimensions.get('window').height;
 
 const Login = () => {
     return (
-        <>
+        <View>
             <Text style={styles.loginText}>
                 Login
             </Text>
             <TextInput style={styles.loginInput} placeholder="Email" />
             <TextInput secureTextEntry={true} style={styles.passwordInput} placeholder="Password" />
+            <Icon name="visibility" size={30} color="#900" />;
             <TouchableOpacity style={styles.loginButton}>
                 <Text style={{ color: "white", fontSize: 18, fontFamily: "Poppins-Regular", textAlign: "center" }}>
                     Login
@@ -22,7 +24,12 @@ const Login = () => {
             <TouchableOpacity>
                 <Text style={styles.forgotPassword}>Forgot Password ?</Text>
             </TouchableOpacity>
-        </>
+            <View style={styles.signUpLink}>
+                <Text style={{ textAlign: "center", fontSize: 16 }}>
+                    Don't have an account? <Text onPress={() => console.log(`sign up pressed`)} style={styles.signUpText}>Sign Up</Text>
+                </Text>
+            </View>
+        </View>
     )
 }
 
@@ -84,7 +91,11 @@ const styles = StyleSheet.create({
     },
     signUpLink: {
         top: height / 5 + 64 + 33 + 38,
-
+        textAlign: "center",
+    },
+    signUpText: {
+        color: "#7F3DFF",
+        textDecorationLine: "underline ",
     }
 })
 
