@@ -1,34 +1,31 @@
-import React from 'react'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Pressable } from 'react-native';
-import { Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React from 'react';
+import {View,Dimensions,StyleSheet,Text,TextInput,TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-
-const Login = ({navigation}) => {
-    return (
+const SignUp = ({navigation}) => {
+    return(
         <View>
             <Text style={styles.loginText}>
-                Login
+                SignUp
             </Text>
+            <TextInput style={styles.nameInput} placeholder="Name" />
             <TextInput style={styles.loginInput} placeholder="Email" />
             <TextInput secureTextEntry={true} style={styles.passwordInput} placeholder="Password" />
+            <BouncyCheckbox onPress={(isChecked: boolean) => {}} />
             <TouchableOpacity style={styles.loginButton}>
                 <Text style={{ color: "white", fontSize: 18, fontFamily: "Poppins-Regular", textAlign: "center" }}>
-                    Login
+                    Sign Up
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity>
-                <Text style={styles.forgotPassword}>Forgot Password ?</Text>
-            </TouchableOpacity>
+
             <View style={styles.signUpLink}>
                 <Text style={{ textAlign: "center", fontSize: 16 }}>
-                    Don't have an account? <Text onPress={() => navigation.navigate('SignUp')} style={styles.signUpText}>Sign Up</Text>
+                    Already have an account? <Text onPress={() => navigation.navigate("Login")} style={styles.signUpText}>Login</Text>
                 </Text>
             </View>
         </View>
@@ -36,14 +33,7 @@ const Login = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
-    loginText: {
-        textAlign: "center",
-        fontSize: 25,
-        color: "black",
-        top: height / 18,
-        fontFamily: "Poppins-Regular",
-    },
-    loginInput: {
+    nameInput:{
         borderColor: "#E0E0E0",
         borderWidth: 1,
         marginLeft: 20,
@@ -57,12 +47,33 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         paddingBottom: 15,
     },
+    loginText: {
+        textAlign: "center",
+        fontSize: 25,
+        color: "black",
+        top: height / 18,
+        fontFamily: "Poppins-Regular",
+    },
+    loginInput: {
+        borderColor: "#E0E0E0",
+        borderWidth: 1,
+        marginLeft: 20,
+        marginRight: 20,
+        top: height / 5 +24,
+        borderRadius: 16,
+        paddingLeft: 10,
+        paddingRight: 10,
+        fontFamily: "Poppins-Regular",
+        fontSize: 15,
+        paddingTop: 15,
+        paddingBottom: 15,
+    },
     passwordInput: {
         borderColor: "#E0E0E0",
         borderWidth: 1,
         marginLeft: 20,
         marginRight: 20,
-        top: height / 5 + 24,
+        top: height / 5 + 24 + 24,
         borderRadius: 16,
         paddingLeft: 10,
         paddingRight: 10,
@@ -82,7 +93,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         paddingTop: 15,
         paddingBottom: 15,
-        top: height / 5 + 24 + 40,
+        top: height / 5 + 24 + 80,
     },
     forgotPassword: {
         top: height / 5 + 64 + 33,
@@ -101,4 +112,5 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Login;
+
+export default SignUp;
