@@ -16,8 +16,13 @@ const SignUp = ({navigation}) => {
             <TextInput style={styles.nameInput} placeholder="Name" />
             <TextInput style={styles.loginInput} placeholder="Email" />
             <TextInput secureTextEntry={true} style={styles.passwordInput} placeholder="Password" />
-            <BouncyCheckbox onPress={(isChecked: boolean) => {}} />
-            <TouchableOpacity style={styles.loginButton}>
+            <View style={styles.checkbox}>
+            <BouncyCheckbox fillColor="#7F3DFF" textStyle={{
+                textDecorationLine: "none",
+                textDecoration:"none"
+            }} onPress={(isChecked: boolean) => {}} text="By signing up, you agree to the Terms of Service and Privacy Policy" iconStyle={{ borderColor: "#E0E0E0", borderRadius:5, }} innerIconStyle={{borderRadius:5,}} textStyle={{ fontFamily: "Poppins-Regular" }}/>
+            </View>
+                <TouchableOpacity style={styles.loginButton}>
                 <Text style={{ color: "white", fontSize: 18, fontFamily: "Poppins-Regular", textAlign: "center" }}>
                     Sign Up
                 </Text>
@@ -49,7 +54,7 @@ const styles = StyleSheet.create({
     },
     loginText: {
         textAlign: "center",
-        fontSize: 25,
+        fontSize: 18,
         color: "black",
         top: height / 18,
         fontFamily: "Poppins-Regular",
@@ -109,6 +114,14 @@ const styles = StyleSheet.create({
     signUpText: {
         color: "#7F3DFF",
         textDecorationLine: "underline ",
+    },
+    checkbox:{
+        top:height/5+64+17,
+        marginLeft:20,
+        marginRight:20,
+        paddingRight:20,
+        textDecorationLine:"none",
+        textDecoration:"none",
     }
 })
 

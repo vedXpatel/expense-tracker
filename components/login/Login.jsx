@@ -12,13 +12,13 @@ const height = Dimensions.get('window').height;
 
 const Login = ({navigation}) => {
     return (
-        <View>
-            <Text style={styles.loginText}>
-                Login
-            </Text>
-            <TextInput style={styles.loginInput} placeholder="Email" />
-            <TextInput secureTextEntry={true} style={styles.passwordInput} placeholder="Password" />
-            <TouchableOpacity style={styles.loginButton}>
+            <View>
+                <Text style={styles.loginText}>
+                    Login
+                </Text>
+                <TextInput style={styles.loginInput} placeholder="Email" />
+                <TextInput secureTextEntry={true} style={styles.passwordInput} placeholder="Password" />
+                <TouchableOpacity style={styles.loginButton} onPress={()=>navigation.navigate('SetAccount')}>
                 <Text style={{ color: "white", fontSize: 18, fontFamily: "Poppins-Regular", textAlign: "center" }}>
                     Login
                 </Text>
@@ -38,7 +38,7 @@ const Login = ({navigation}) => {
 const styles = StyleSheet.create({
     loginText: {
         textAlign: "center",
-        fontSize: 25,
+        fontSize: 18,
         color: "black",
         top: height / 18,
         fontFamily: "Poppins-Regular",

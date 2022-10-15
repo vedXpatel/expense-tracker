@@ -21,7 +21,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './components/login/Login';
 import SignUp from './components/login/SignUp';
-
+import SetAccount from './components/newAccount/SetAccount';
 
 
 const App = () => {
@@ -33,6 +33,7 @@ const App = () => {
        <Stack.Navigator initialRouteName='Login'>
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
            <Stack.Screen name="SignUp" component={SignUp} options={{headerShown: false}}/>
+           <Stack.Screen name="SetAccount" component={SetAccount} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
